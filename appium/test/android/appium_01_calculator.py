@@ -20,6 +20,8 @@ class CalculatorTests(unittest.TestCase):
 
     def setUp(self):
         desired_caps = desired_capabilities.get_desired_capabilities('')
+        desired_caps['appActivity'] = '.Calculator'
+        desired_caps['appPackage'] = 'com.android.calculator2'
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
         print u"开始测试"
 
@@ -29,24 +31,31 @@ class CalculatorTests(unittest.TestCase):
 
     def test_calculator(self):
 
-
         self.driver.find_element_by_name('1').click()
         sleep(SLEEPY_TIME)
 
-        self.driver.find_element_by_name(u'删除').click()
+        self.driver.find_element_by_id('com.android.calculator2:id/digit2').click()
         sleep(SLEEPY_TIME)
 
-        self.driver.find_element_by_name('2').click()
+        self.driver.find_element_by_class_name('android.widget.Button').click()
         sleep(SLEEPY_TIME)
 
-        self.driver.find_element_by_name('+').click()
-        sleep(SLEEPY_TIME)
+        # self.driver.find_elements_by_android_uiautomator('new UiSelector().clickable(true)').click()
 
-        self.driver.find_element_by_name('1').click()
-        sleep(SLEEPY_TIME)
-
-        self.driver.find_element_by_name('=').click()
-        sleep(SLEEPY_TIME)
+        # self.driver.find_element_by_name(u'删除').click()
+        # sleep(SLEEPY_TIME)
+        #
+        # self.driver.find_element_by_name('2').click()
+        # sleep(SLEEPY_TIME)
+        #
+        # self.driver.find_element_by_name('+').click()
+        # sleep(SLEEPY_TIME)
+        #
+        # self.driver.find_element_by_name('1').click()
+        # sleep(SLEEPY_TIME)
+        #
+        # self.driver.find_element_by_name('=').click()
+        # sleep(SLEEPY_TIME)
 
 
 if __name__ == "__main__":

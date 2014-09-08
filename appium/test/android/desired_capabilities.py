@@ -1,4 +1,4 @@
-#coding: utf-8
+# coding: utf-8
 
 """
 @Author: Well
@@ -37,6 +37,7 @@ PATH = lambda p: os.path.abspath(
     os.path.join(os.path.dirname(__file__), p)
 )
 
+
 def get_desired_capabilities(app):
     if app == 'Chrome':
         desired_caps = {
@@ -54,13 +55,16 @@ def get_desired_capabilities(app):
             'browserName': app,
         }
 
+# 自定义要启动的应用
+# 'appActivity': '.Calculator',
+# 'appPackage': 'com.android.calculator2',
+
     if app == '':
         desired_caps = {
             'platformName': 'Android',
             'platformVersion': '4.4',
             'deviceName': '0481575a0b4b78ce',
-            'appActivity': '.Calculator',
-            'appPackage': 'com.android.calculator2',
+
         }
 
     else:
