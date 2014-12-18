@@ -1,4 +1,4 @@
-#coding: utf-8
+# coding: utf-8
 
 """
 @Author: Well
@@ -7,27 +7,34 @@
 
 # 截图
 
-from selenium import webdriver
+from appium import webdriver
 import os
-import time
+from time import sleep
+import desired_capabilities
+import unittest
 
-# Returns abs path relative to this file and not cwd
-PATH = lambda p: os.path.abspath(
-    os.path.join(os.path.dirname(__file__), p)
-)
-desired_caps = dict()
-desired_caps['device'] = 'android'
-desired_caps['browserName'] = ''
-desired_caps['version'] = '4.4'
-desired_caps['app-package'] = 'com.android.calculator2'
-desired_caps['app-activity'] = '.Calculator'
-driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
 
-time.sleep(6)
+SLEEPY_TIME = 5
 
-file_name = os.path.basename(__file__).split('.')[0]
-dir_name = os.path.dirname(__file__)
-driver.get_screenshot_as_file(dir_name + '/png/' + file_name + '.png')
-time.sleep(6)
 
-driver.quit()
+class CalculatorTests(unittest.TestCase):
+    def setUp(self):
+        desired_caps = desired_capabilities.get_desired_capabilities('')
+        desired_caps['appActivity'] = '.Calculator'
+        desired_caps['appPackage'] = 'com.android.calculator2'
+        self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+        print u"开始测试"
+
+    def tearDown(self):
+        self.driver.quit()
+        print u"测试结束"
+
+    def test_calculator(self):
+        file_name = os.path.basename(__file__).split('.')[0]
+        dir_name = os.path.dirname(__file__)
+        self.driver.get_screenshot_as_file(dir_name + '/png/' + file_name + '.png')
+        sleep(SLEEPY_TIME)
+
+
+if __name__ == "__main__":
+    unittest.main()

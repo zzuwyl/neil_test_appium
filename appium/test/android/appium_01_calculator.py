@@ -34,28 +34,28 @@ class CalculatorTests(unittest.TestCase):
         self.driver.find_element_by_name('1').click()
         sleep(SLEEPY_TIME)
 
-        self.driver.find_element_by_id('com.android.calculator2:id/digit2').click()
+        self.driver.find_element_by_id('com.android.calculator2:id/digit_2').click()
         sleep(SLEEPY_TIME)
 
         self.driver.find_element_by_class_name('android.widget.Button').click()
         sleep(SLEEPY_TIME)
 
-        # self.driver.find_elements_by_android_uiautomator('new UiSelector().clickable(true)').click()
+        self.driver.find_elements_by_android_uiautomator('new UiSelector().clickable(true)').click()
 
-        # self.driver.find_element_by_name(u'删除').click()
-        # sleep(SLEEPY_TIME)
-        #
-        # self.driver.find_element_by_name('2').click()
-        # sleep(SLEEPY_TIME)
-        #
-        # self.driver.find_element_by_name('+').click()
-        # sleep(SLEEPY_TIME)
-        #
-        # self.driver.find_element_by_name('1').click()
-        # sleep(SLEEPY_TIME)
-        #
-        # self.driver.find_element_by_name('=').click()
-        # sleep(SLEEPY_TIME)
+        self.driver.find_element_by_name(u'删除').click()
+        sleep(SLEEPY_TIME)
+
+        self.driver.find_element_by_name('2').click()
+        sleep(SLEEPY_TIME)
+
+        self.driver.find_element_by_name('+').click()
+        sleep(SLEEPY_TIME)
+
+        self.driver.find_element_by_name('1').click()
+        sleep(SLEEPY_TIME)
+
+        self.driver.find_element_by_name('=').click()
+        sleep(SLEEPY_TIME)
 
 
 if __name__ == "__main__":
