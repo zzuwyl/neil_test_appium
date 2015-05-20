@@ -2,11 +2,11 @@
 
 """
 @Author: Well
-@Date: 2014 - 04 - 30
+@Date: 2015 - 05 - 20
 """
 
 """
-# 功能：测试登录
+# 功能：测试账号退出，并截图。
 """
 
 from appium import webdriver
